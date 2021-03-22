@@ -11,6 +11,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var username: Array<String>
     private lateinit var name: Array<String>
+    private lateinit var company: Array<String>
+    private lateinit var location: Array<String>
+    private lateinit var repository: Array<String>
+    private lateinit var following: Array<String>
+    private lateinit var followers: Array<String>
     private lateinit var avatar: TypedArray
 
     private lateinit var userAdapter: UserAdapter
@@ -42,8 +47,12 @@ class MainActivity : AppCompatActivity() {
             val user = User(
                 username[position],
                 name[position],
-                avatar.getResourceId(position, -1)
-
+                avatar.getResourceId(position, -1),
+                company[position],
+                location[position],
+                repository[position],
+                followers[position],
+                following[position]
             )
             users.add(user)
         }
@@ -54,5 +63,10 @@ class MainActivity : AppCompatActivity() {
         username = resources.getStringArray(R.array.username)
         name = resources.getStringArray(R.array.name)
         avatar = resources.obtainTypedArray(R.array.avatar)
+        company = resources.getStringArray(R.array.company)
+        location = resources.getStringArray(R.array.location)
+        repository = resources.getStringArray(R.array.repository)
+        followers = resources.getStringArray(R.array.followers)
+        following = resources.getStringArray(R.array.following)
     }
 }

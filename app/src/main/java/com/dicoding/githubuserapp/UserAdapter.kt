@@ -1,5 +1,6 @@
 package com.dicoding.githubuserapp
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -26,9 +27,14 @@ class UserAdapter(private val listUser: ArrayList<User>) :
         holder.binding.tvUsername.text = user.username
         Glide.with(holder.itemView.context)
             .load(user.avatar)
-            .transform(CenterCrop(),RoundedCorners(30))
+            .transform(CenterCrop(), RoundedCorners(30))
             .into(holder.binding.civAvatar)
 
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailUserActivity::class.java)
+            intent.putExtra(DetailUserActivity.KEY_USER, user)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = listUser.size
