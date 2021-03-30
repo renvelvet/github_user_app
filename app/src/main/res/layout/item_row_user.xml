@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/yellow"
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_toEndOf="@id/civ_avatar"
-        android:text="@string/name"
+        tools:text="name"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:fontFamily="@font/barlow"
@@ -35,13 +36,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_name"
         android:layout_marginStart="26dp"
-        android:layout_marginLeft="26dp"
         android:layout_marginTop="1dp"
-        android:layout_toRightOf="@id/civ_avatar"
+        android:layout_toEndOf="@id/civ_avatar"
         android:ellipsize="end"
         android:fontFamily="@font/caveat"
         android:maxLines="3"
-        android:text="@string/simbol"
+        tools:text="\@"
         android:textColor="@color/blue"
         android:textSize="20sp" />
 
@@ -51,11 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_name"
         android:layout_marginTop="1dp"
-        android:layout_toRightOf="@id/simbol"
+        android:layout_toEndOf="@id/simbol"
         android:ellipsize="end"
         android:fontFamily="@font/caveat"
         android:maxLines="3"
-        android:text="@string/username"
+        tools:text="username"
         android:textColor="@color/blue"
         android:textSize="20sp" />
 

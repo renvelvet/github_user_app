@@ -127,8 +127,5 @@
         <item>64</item>
     </string-array>
 
-    <string name="name">name</string>
-    <string name="username">username</string>
     <string name="app_name">GithubUserApp</string>
-    <string name="simbol">\@</string>
 </resources>
