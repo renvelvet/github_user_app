@@ -14,7 +14,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
         const val KEY_USER = "key_user"
     }
 
-    lateinit var detailUser: User
+    private lateinit var detailUser: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        val name = detailUser.name.toString()
+        val name = detailUser.name
         val text1 = "Hi,"
         val text2 = "I found your github profile quite interesting. Let's have some chit chat!"
         val tweetUrl = ("https://twitter.com/intent/tweet?text=$text1&url="
