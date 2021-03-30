@@ -12,8 +12,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        @Suppress("DEPRECATION")
-        handler = Handler()
+        handler = Handler(mainLooper)
         handler.postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
