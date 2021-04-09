@@ -4,17 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellow_light"
     android:orientation="vertical"
-    android:paddingTop="0dp"
-    tools:context=".DetailUserActivity">
+    tools:context=".ui.DetailUserActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="149dp"
-        android:layout_marginTop="0dp"
-        android:paddingTop="0dp"
+        android:layout_margin="0dp"
+        android:padding="0dp"
         app:srcCompat="@drawable/cover" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -34,7 +32,7 @@
         android:layout_above="@id/tv_username"
         android:fontFamily="@font/barlow"
         android:paddingTop="4dp"
-        android:text="name"
+        tools:text="name"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -47,7 +45,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/caveat"
         android:padding="0dp"
-        android:text="name"
+        tools:text="name"
         android:textAlignment="center"
         android:textColor="@color/blue"
         android:textSize="24sp"
@@ -57,7 +55,7 @@
         android:id="@+id/tv_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="4dp"
         android:drawableLeft="@drawable/ic_baseline_business_24"
         android:paddingLeft="16dp"
@@ -171,23 +169,32 @@
             android:textSize="30sp" />
     </LinearLayout>
 
-    <TextView
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/caveat"
-        android:text="Found this user outstanding?"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="@color/pink"
-        android:drawableLeft="@drawable/ic_baseline_share_24"
-        android:text="share"
-        android:textColor="@color/white" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/caveat"-->
+<!--        android:text="Found this user outstanding?"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="20sp" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_share"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:backgroundTint="@color/pink"-->
+<!--        android:drawableLeft="@drawable/ic_baseline_share_24"-->
+<!--        android:text="share"-->
+<!--        android:textColor="@color/white" />-->
 
 </LinearLayout>
