@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.adapter
+package com.dicoding.githubuserapp.user
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
+import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.databinding.ItemRowUserBinding
-import com.dicoding.githubuserapp.model.User
-import com.dicoding.githubuserapp.ui.DetailUserActivity
+import com.dicoding.githubuserapp.network.User
+import com.dicoding.githubuserapp.detail.DetailUserActivity
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
@@ -48,6 +50,10 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
                 Glide.with(itemView.context)
                     .load(user.avatar)
                     .transform(CenterCrop(), RoundedCorners(30))
+                    .apply(
+                        RequestOptions().placeholder(R.drawable.ic_baseline_downloading_24)
+                            .error(R.drawable.ic_baseline_broken_image_24)
+                    )
                     .into(civAvatar)
             }
         }

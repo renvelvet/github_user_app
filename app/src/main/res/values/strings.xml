@@ -1,19 +1,17 @@
 <resources>
-    <string name="app_name">GithubUserApp</string>
+    <string name="app_name">Github Buddy</string>
+    <string name="search_hint">Enter username</string>
     <string name="search">Search</string>
-    <string name="insert_user">Insert user\'s name</string>
-    <string name="username">Username</string>
-    <string name="name">Username</string>
-    <string name="avatar">Username</string>
-    <string name="company">Username</string>
-    <string name="repository">Username</string>
-    <string name="following">Username</string>
-    <string name="followers">Username</string>
-    <string name="location">Username</string>
-    <string name="user_query">Cari berdasarkan username</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="tab_text_1">Following</string>
-    <string name="tab_text_2">Follower</string>
+    <string name="username">\@%1s</string>
+    <plurals name="repository">
+        <item quantity="one">%1d Repository</item>
+        <item quantity="other">%1d Repositories</item>
+    </plurals>
+    <string name="tab_text_1">%1d Following</string>
+    <string name="tab_text_2">%1d Follower</string>
     <string name="text_null">\t-</string>
-
+    <string name="error_message">Sorry, the query didn\'t match any</string>
+    <string name="link_user">%1s\'s Page</string>
+    <string name="change_language_settings">Change Language Settings</string>
+    <string name="welcoming_message">Looking for Github Buddy? Try on the search bar above!</string>
 </resources>

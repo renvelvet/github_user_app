@@ -1,18 +1,20 @@
-package com.dicoding.githubuserapp.ui
+package com.dicoding.githubuserapp.detail
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.dicoding.githubuserapp.R
-import com.dicoding.githubuserapp.adapter.SectionsPagerAdapter
+import com.dicoding.githubuserapp.sections.SectionsPagerAdapter
 import com.dicoding.githubuserapp.databinding.ActivityDetailUserBinding
-import com.dicoding.githubuserapp.viewModel.DetailUserViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 
-class DetailUserActivity : AppCompatActivity() {
+class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDetailUserBinding
     private lateinit var detailUserViewModel: DetailUserViewModel
     private lateinit var username: String
@@ -20,6 +22,7 @@ class DetailUserActivity : AppCompatActivity() {
 
     companion object {
         const val KEY_USER = "key_user"
+
         @StringRes
         private val TAB_TITLES = intArrayOf(
             R.string.tab_text_1,
@@ -36,14 +39,16 @@ class DetailUserActivity : AppCompatActivity() {
         bundle = Bundle()
         bundle.putString(KEY_USER, username)
 
-        detailUserViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(DetailUserViewModel::class.java)
+        detailUserViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            DetailUserViewModel::class.java
+        )
 
         detailUserViewModel.setData(username)
         detailUserViewModel.getDetailUser().observe(this, {
             if (it != null) {
                 binding.apply {
                     tvName.text = it.name
-                    tvUsername.text = it.username
+                    tvUsername.text = resources.getString(R.string.username, it.username)
                     if (it.location == null) {
                         tvLocation.text = resources.getString(R.string.text_null)
                     } else {
@@ -54,9 +59,20 @@ class DetailUserActivity : AppCompatActivity() {
                     } else {
                         tvCompany.text = it.company
                     }
-                    tvNumberFollowers.text = "${it.followers}"
-                    tvNumberFollowing.text = "${it.following}"
-                    tvNumberRepository.text = "${it.repository}"
+                    tvRepository.text = resources.getQuantityString(R.plurals.repository, it.repository, it.repository)
+
+                    tvLinkUser.text = resources.getString(R.string.link_user, it.name)
+                    imgLinkUser.setOnClickListener(this@DetailUserActivity)
+
+                    val tabValue = intArrayOf(
+                        it.following,
+                        it.followers
+                    )
+
+                    viewPager.adapter = SectionsPagerAdapter(this@DetailUserActivity, bundle)
+                    TabLayoutMediator(tabs, viewPager) { tab, position ->
+                        tab.text = resources.getString(TAB_TITLES[position], tabValue[position])
+                    }.attach()
 
                     Glide.with(this@DetailUserActivity)
                         .load(it.avatar)
@@ -66,24 +82,14 @@ class DetailUserActivity : AppCompatActivity() {
             }
         })
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, bundle)
-        binding.apply {
-            viewPager.adapter = sectionsPagerAdapter
-            TabLayoutMediator(tabs, viewPager) { tab, position ->
-                tab.text = resources.getString(TAB_TITLES[position])
-            }.attach()
-        }
-
         supportActionBar?.elevation = 0f
     }
 
-//    override fun onClick(v: View?) {
-//        val name = detailUser.name
-//        val text1 = "Hi,"
-//        val text2 = "I found your github p rofile quite interesting. Let's have some chit chat!"
-//        val tweetUrl = ("https://twitter.com/intent/tweet?text=$text1&url="
-//                + "$name! $text2")
-//        val uri: Uri = Uri.parse(tweetUrl)
-//        startActivity(Intent(Intent.ACTION_VIEW, uri))
-//    }
+    override fun onClick(v: View) {
+        if (v.id == R.id.img_link_user) {
+            val linkIntent = Intent(Intent.ACTION_VIEW)
+            linkIntent.setData(Uri.parse("https://github.com/${username}"))
+            startActivity(linkIntent)
+        }
+    }
 }

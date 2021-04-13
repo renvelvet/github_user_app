@@ -1,200 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.DetailUserActivity">
+    android:padding="8dp"
+    android:background="@drawable/main_bg"
+    tools:context=".detail.DetailUserActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="149dp"
-        android:layout_margin="0dp"
-        android:padding="0dp"
-        app:srcCompat="@drawable/cover" />
+        android:layout_height="wrap_content">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_avatar"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:src="@drawable/user1"
-        android:translationY="-100dp"
-        app:civ_border_color="@color/blue"
-        app:civ_border_width="2dp" />
-
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/tv_username"
-        android:fontFamily="@font/barlow"
-        android:paddingTop="4dp"
-        tools:text="name"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:translationY="-90dp" />
-
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/caveat"
-        android:padding="0dp"
-        tools:text="name"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        android:textSize="24sp"
-        android:translationY="-90dp" />
-
-    <TextView
-        android:id="@+id/tv_company"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="4dp"
-        android:drawableLeft="@drawable/ic_baseline_business_24"
-        android:paddingLeft="16dp"
-        android:text="company"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:translationY="-90dp" />
-
-    <TextView
-        android:id="@+id/tv_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="4dp"
-        android:drawableLeft="@drawable/ic_baseline_location_on_24"
-        android:paddingLeft="16dp"
-        android:text="location"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:translationY="-90dp" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="16dp"
-        android:translationY="-90dp">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_avatar"
+            android:layout_width="177dp"
+            android:layout_height="186dp"
+            android:layout_gravity="center"
+            android:src="@drawable/avatar"
+            app:civ_border_color="@color/blue"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline3" />
 
         <TextView
-            android:id="@+id/tv_following"
-            android:layout_width="0dp"
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle"
+            android:layout_above="@id/tv_username"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/barlow"
-            android:padding="8dp"
-            android:text="Following"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/civ_avatar"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:padding="0dp"
+            android:textAlignment="center"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="username" />
+
+        <TextView
+            android:id="@+id/tv_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_business_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.035"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/background_profile"
+            tools:text="company" />
+
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintEnd_toEndOf="@id/tv_company"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_company"
+            app:layout_constraintTop_toBottomOf="@id/tv_company"
+            tools:text="location" />
 
         <TextView
             android:id="@+id/tv_repository"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle"
-            android:fontFamily="@font/barlow"
-            android:padding="8dp"
-            android:text="Repository"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/nunito"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/icon_repository"
+            app:layout_constraintEnd_toEndOf="@id/tv_company"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_company"
+            app:layout_constraintTop_toBottomOf="@id/tv_location"
+            tools:text="0" />
+
+        <ImageView
+            android:id="@+id/background_profile"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/list_bg"
+            app:layout_constraintBottom_toTopOf="@+id/tabs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+        <ImageView
+            android:id="@+id/img_link_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/icon_github"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_followers"
-            android:layout_width="0dp"
+            android:id="@+id/tv_link_user"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/rectangle"
-            android:fontFamily="@font/barlow"
-            android:padding="8dp"
-            android:text="Followers"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:layout_marginEnd="4dp"
+            android:fontFamily="@font/nunito"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_link_user"
+            tools:text="user page" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:translationY="-90dp">
-
-        <TextView
-            android:id="@+id/tv_number_following"
-            android:layout_width="0dp"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/barlow"
-            android:padding="4dp"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="30sp" />
+            android:layout_marginTop="16dp"
+            android:background="?attr/colorOnSecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/background_profile"
+            app:tabTextColor="?attr/colorPrimaryDark" />
 
-        <TextView
-            android:id="@+id/tv_number_repository"
-            android:layout_width="0dp"
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/barlow"
-            android:padding="4dp"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="30sp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabs">
 
-        <TextView
-            android:id="@+id/tv_number_followers"
-            android:layout_width="0dp"
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/barlow"
-            android:padding="4dp"
-            android:text="0"
-            android:textAlignment="center"
-            android:textColor="@color/blue"
-            android:textSize="30sp" />
-    </LinearLayout>
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="50dp" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:fontFamily="@font/caveat"-->
-<!--        android:text="Found this user outstanding?"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="20sp" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/btn_share"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:backgroundTint="@color/pink"-->
-<!--        android:drawableLeft="@drawable/ic_baseline_share_24"-->
-<!--        android:text="share"-->
-<!--        android:textColor="@color/white" />-->
-
-</LinearLayout>
+</ScrollView>

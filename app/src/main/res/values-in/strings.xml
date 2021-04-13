@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github Buddy</string>
+    <string name="search_hint">Masukkan nama pengguna</string>
+    <string name="search">Cari</string>
+    <string name="username">\@%1s</string>
+    <plurals name="repository">
+        <item quantity="one">%1d Repositori</item>
+        <item quantity="other">%1d Repositori</item>
+    </plurals>
+    <string name="tab_text_1">%1d Mengikuti</string>
+    <string name="tab_text_2">%1d Pengikut</string>
+    <string name="text_null">\t-</string>
+    <string name="error_message">Maaf, pencarian tidak ditemukan</string>
+    <string name="link_user">Halaman %1s</string>
+    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+    <string name="welcoming_message">Mencari seorang Github Buddy? Coba pencarian di atas!</string>
+</resources>

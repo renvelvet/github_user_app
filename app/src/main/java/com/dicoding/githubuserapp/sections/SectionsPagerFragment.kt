@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.ui
+package com.dicoding.githubuserapp.sections
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubuserapp.R
-import com.dicoding.githubuserapp.adapter.UserAdapter
+import com.dicoding.githubuserapp.user.UserAdapter
 import com.dicoding.githubuserapp.databinding.FragmentSectionsPagerBinding
-import com.dicoding.githubuserapp.viewModel.SectionsPagerViewModel
 
 class SectionsPagerFragment : Fragment() {
 
@@ -54,7 +53,8 @@ class SectionsPagerFragment : Fragment() {
 
         val listType = arguments?.getInt(ARG_SECTION_TYPE)
         val username = arguments?.getString(ARG_SECTION_USERNAME)
-        sectionsPagerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(SectionsPagerViewModel::class.java)
+        sectionsPagerViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            SectionsPagerViewModel::class.java)
         sectionsPagerViewModel.setData(listType,username)
         sectionsPagerViewModel.getList().observe(viewLifecycleOwner, {
             if (it != null) {
