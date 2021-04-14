@@ -6,7 +6,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -101,7 +100,6 @@ class MainActivity : AppCompatActivity() {
         userViewModel.setData(query)
         lifecycleScope.launch(Dispatchers.Default) {
             delay(2000)
-            Log.d("main", "query $query isNotFound:${userViewModel.isNotFound}")
             withContext(Dispatchers.Main) {
                 displayError(userViewModel.isNotFound)
             }
