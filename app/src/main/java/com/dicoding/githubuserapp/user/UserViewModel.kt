@@ -12,14 +12,14 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class UserViewModel : ViewModel() {
-    val _properties = MutableLiveData<ArrayList<User>>()
-    val properties: LiveData<ArrayList<User>>
-        get() = _properties
+    val list = MutableLiveData<ArrayList<User>>()
+    val getList: LiveData<ArrayList<User>>
+        get() = list
 
     var isNotFound = false
 
-    fun setData(user_query: String) {
-        ApiConfig.getApiService().getSearchUsers(user_query)
+    fun setData(userQuery: String) {
+        ApiConfig.getApiService().getSearchUsers(userQuery)
             .enqueue(object : Callback<ResponseUser> {
                 override fun onResponse(
                     call: Call<ResponseUser>,
@@ -27,15 +27,12 @@ class UserViewModel : ViewModel() {
                 ) {
                     setQueryNotFound(response.body()?.result == 0)
                     if (response.isSuccessful) {
-                        _properties.postValue(response.body()?.items)
-
-                        Log.d("hasil", "${response.body()?.result} $isNotFound")
-
+                        list.postValue(response.body()?.items)
                     }
                 }
 
                 override fun onFailure(call: Call<ResponseUser>, t: Throwable) {
-                    t.message?.let { Log.d("Fail set _properties:", it) }
+                    t.message?.let { Log.d("Fail set list:", it) }
                 }
             })
     }

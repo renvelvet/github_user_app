@@ -56,7 +56,7 @@ class SectionsPagerViewModel : ViewModel() {
 
     }
 
-    fun getList() : LiveData<ArrayList<User>> {
+    fun getList(): LiveData<ArrayList<User>> {
         return list
     }
 }

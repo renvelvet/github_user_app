@@ -7,14 +7,12 @@ import android.os.Handler
 import com.dicoding.githubuserapp.R
 
 class SplashScreenActivity : AppCompatActivity() {
-    lateinit var handler: Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        handler = Handler(mainLooper)
-        handler.postDelayed({
+        Handler(mainLooper).postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()

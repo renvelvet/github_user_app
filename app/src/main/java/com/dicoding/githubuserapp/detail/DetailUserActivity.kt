@@ -42,7 +42,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
         detailUserViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             DetailUserViewModel::class.java
         )
-
+        showLoading(true)
         detailUserViewModel.setData(username)
         detailUserViewModel.getDetailUser().observe(this, {
             if (it != null) {
@@ -59,9 +59,13 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
                     } else {
                         tvCompany.text = it.company
                     }
-                    tvRepository.text = resources.getQuantityString(R.plurals.repository, it.repository, it.repository)
+                    tvRepository.text = resources.getQuantityString(
+                        R.plurals.repository,
+                        it.repository,
+                        it.repository
+                    )
 
-                    tvLinkUser.text = resources.getString(R.string.link_user, it.name)
+                    tvLinkUser.text = resources.getString(R.string.link_user, it.username)
                     imgLinkUser.setOnClickListener(this@DetailUserActivity)
 
                     val tabValue = intArrayOf(
@@ -79,16 +83,27 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
                         .transform(CenterCrop())
                         .into(civAvatar)
                 }
+                showLoading(false)
             }
         })
 
         supportActionBar?.elevation = 0f
     }
 
+    private fun showLoading(state: Boolean) {
+        binding.apply {
+            if (state) {
+                progressBar.visibility = View.VISIBLE
+            } else {
+                progressBar.visibility = View.GONE
+            }
+        }
+    }
+
     override fun onClick(v: View) {
         if (v.id == R.id.img_link_user) {
             val linkIntent = Intent(Intent.ACTION_VIEW)
-            linkIntent.setData(Uri.parse("https://github.com/${username}"))
+            linkIntent.data = Uri.parse("https://github.com/${username}")
             startActivity(linkIntent)
         }
     }

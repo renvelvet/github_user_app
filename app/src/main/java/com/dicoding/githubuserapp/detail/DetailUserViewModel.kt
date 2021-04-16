@@ -14,7 +14,7 @@ class DetailUserViewModel : ViewModel() {
 
     val user = MutableLiveData<ResponseDetailUser>()
 
-    fun setData(username : String) {
+    fun setData(username: String) {
         ApiConfig.getApiService().getDetailUser(username)
             .enqueue(object : Callback<ResponseDetailUser> {
                 override fun onResponse(
@@ -32,7 +32,7 @@ class DetailUserViewModel : ViewModel() {
             })
     }
 
-    fun getDetailUser() : LiveData<ResponseDetailUser> {
+    fun getDetailUser(): LiveData<ResponseDetailUser> {
         return user
     }
 }

@@ -20,24 +20,24 @@ interface ApiService {
     @GET(ENDPOINT_SEARCH_USERS)
     @Headers("Authorization: token $TOKEN")
     fun getSearchUsers(
-        @Query("q") user_query : String
-    ) : Call<ResponseUser>
+        @Query("q") userQuery: String
+    ): Call<ResponseUser>
 
     @GET(ENDPOINT_DETAIL_USER)
     @Headers("Authorization: token $TOKEN")
     fun getDetailUser(
-        @Path("username") username : String
-    ) : Call<ResponseDetailUser>
+        @Path("username") username: String
+    ): Call<ResponseDetailUser>
 
     @GET(ENDPOINT_USER_FOLLOWER)
     @Headers("Authorization: token $TOKEN")
     fun getUserFollower(
         @Path("username") username: String?
-    ) : Call<ArrayList<User>>
+    ): Call<ArrayList<User>>
 
     @GET(ENDPOINT_USER_FOLLOWING)
     @Headers("Authorization: token $TOKEN")
     fun getUserFollowing(
         @Path("username") username: String?
-    ) : Call<ArrayList<User>>
+    ): Call<ArrayList<User>>
 }

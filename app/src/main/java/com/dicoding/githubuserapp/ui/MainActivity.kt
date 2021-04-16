@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             rvUsers.adapter = userAdapter
         }
 
-        userViewModel.properties.observe(this, {
+        userViewModel.getList.observe(this, {
             if (it != null) {
                 userAdapter.setList(it)
                 showLoading(false)
