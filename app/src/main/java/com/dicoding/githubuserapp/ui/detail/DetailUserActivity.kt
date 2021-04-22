@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.detail
+package com.dicoding.githubuserapp.ui.detail
 
 import android.content.Intent
 import android.net.Uri
@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.dicoding.githubuserapp.R
-import com.dicoding.githubuserapp.sections.SectionsPagerAdapter
+import com.dicoding.githubuserapp.adapter.SectionsPagerAdapter
 import com.dicoding.githubuserapp.databinding.ActivityDetailUserBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

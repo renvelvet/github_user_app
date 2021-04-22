@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.user
+package com.dicoding.githubuserapp.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.databinding.ItemRowUserBinding
-import com.dicoding.githubuserapp.network.User
-import com.dicoding.githubuserapp.detail.DetailUserActivity
+import com.dicoding.githubuserapp.data.remote.User
+import com.dicoding.githubuserapp.ui.detail.DetailUserActivity
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.network
+package com.dicoding.githubuserapp.data.remote
 
 import com.dicoding.githubuserapp.BuildConfig
 import retrofit2.Call

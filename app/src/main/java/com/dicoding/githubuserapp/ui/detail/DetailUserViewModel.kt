@@ -1,11 +1,11 @@
-package com.dicoding.githubuserapp.detail
+package com.dicoding.githubuserapp.ui.detail
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.githubuserapp.network.ResponseDetailUser
-import com.dicoding.githubuserapp.network.ApiConfig
+import com.dicoding.githubuserapp.data.remote.ResponseDetailUser
+import com.dicoding.githubuserapp.data.remote.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

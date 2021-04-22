@@ -14,9 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubuserapp.R
-import com.dicoding.githubuserapp.user.UserAdapter
+import com.dicoding.githubuserapp.adapter.UserAdapter
 import com.dicoding.githubuserapp.databinding.ActivityMainBinding
-import com.dicoding.githubuserapp.user.UserViewModel
+import com.dicoding.githubuserapp.ui.user.UserViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

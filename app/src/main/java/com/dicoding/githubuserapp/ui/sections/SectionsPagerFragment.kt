@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.sections
+package com.dicoding.githubuserapp.ui.sections
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubuserapp.R
-import com.dicoding.githubuserapp.user.UserAdapter
+import com.dicoding.githubuserapp.adapter.UserAdapter
 import com.dicoding.githubuserapp.databinding.FragmentSectionsPagerBinding
 
 class SectionsPagerFragment : Fragment() {

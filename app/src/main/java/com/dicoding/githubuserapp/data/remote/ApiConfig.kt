@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.network
+package com.dicoding.githubuserapp.data.remote
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
