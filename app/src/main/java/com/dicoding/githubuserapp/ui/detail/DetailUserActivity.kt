@@ -88,6 +88,7 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
         })
 
         supportActionBar?.elevation = 0f
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun showLoading(state: Boolean) {
