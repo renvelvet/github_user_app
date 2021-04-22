@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.dicoding.githubuserapp.data.local.dao.FavortieUserDao
 import com.dicoding.githubuserapp.data.local.entity.FavoriteUser
 
-@Database(entities = [FavoriteUser::class], version = 1)
+@Database(entities = [FavoriteUser::class], version = 1, exportSchema = false)
 abstract class FavoriteUserDatabase : RoomDatabase() {
     abstract fun favoriteUserDao() : FavortieUserDao
 }
