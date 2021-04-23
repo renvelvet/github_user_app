@@ -2,10 +2,10 @@ package com.dicoding.githubuserapp.ui.detail
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
@@ -13,6 +13,10 @@ import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.adapter.SectionsPagerAdapter
 import com.dicoding.githubuserapp.databinding.ActivityDetailUserBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityDetailUserBinding
@@ -22,6 +26,8 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val KEY_USER = "key_user"
+        const val KEY_ID = "key_id"
+        const val KEY_AVA = "key_ava"
 
         @StringRes
         private val TAB_TITLES = intArrayOf(
@@ -36,10 +42,12 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         username = intent.getStringExtra(KEY_USER).toString()
+        val id = intent.getIntExtra(KEY_ID, 0)
+        val ava = intent.getStringExtra(KEY_AVA)
         bundle = Bundle()
         bundle.putString(KEY_USER, username)
 
-        detailUserViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+        detailUserViewModel = ViewModelProvider(this).get(
             DetailUserViewModel::class.java
         )
         showLoading(true)
@@ -52,21 +60,23 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
                     if (it.location == null) {
                         tvLocation.text = resources.getString(R.string.text_null)
                     } else {
-                        tvLocation.text = it.location
+                        tvLocation.text = resources.getString(R.string.location, it.location)
                     }
                     if (it.company == null) {
                         tvCompany.text = resources.getString(R.string.text_null)
                     } else {
-                        tvCompany.text = it.company
+                        tvCompany.text = resources.getString(R.string.company, it.company)
                     }
                     tvRepository.text = resources.getQuantityString(
                         R.plurals.repository,
                         it.repository,
                         it.repository
                     )
+                    tvRepository.setOnClickListener(this@DetailUserActivity)
 
                     tvLinkUser.text = resources.getString(R.string.link_user, it.username)
                     imgLinkUser.setOnClickListener(this@DetailUserActivity)
+                    btnShare.setOnClickListener(this@DetailUserActivity)
 
                     val tabValue = intArrayOf(
                         it.following,
@@ -87,8 +97,59 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
             }
         })
 
+        var statusFavorite = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val found = detailUserViewModel.checkUser(id)
+            withContext(Dispatchers.Main) {
+                statusFavorite = found > 0
+                setStatusFavorite(statusFavorite)
+            }
+        }
+
+        binding.fabFavorite.setOnClickListener {
+            statusFavorite = !statusFavorite
+            if (statusFavorite) {
+                detailUserViewModel.addUser(username, id, ava)
+            } else {
+                detailUserViewModel.deleteUser(username, id, ava)
+            }
+            setStatusFavorite(statusFavorite)
+        }
+
         supportActionBar?.elevation = 0f
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun setStatusFavorite(statusFavorite: Boolean) {
+        binding.apply {
+            if (statusFavorite) {
+                fabFavorite.setImageResource(R.drawable.ic_on_favorite_24)
+            } else {
+                fabFavorite.setImageResource(R.drawable.ic_off_favorite_24)
+            }
+        }
+    }
+
+    override fun onClick(v: View) {
+        val linkIntent = Intent(Intent.ACTION_VIEW)
+        val url = "https://github.com"
+
+        when (v.id) {
+            R.id.img_link_user -> {
+                linkIntent.data = Uri.parse("$url/$username")
+                startActivity(linkIntent)
+            }
+            R.id.tv_repository -> {
+                linkIntent.data = Uri.parse("$url/$username?tab=repositories")
+                startActivity(linkIntent)
+            }
+            R.id.btn_share -> {
+                val tweet = "Meet @$username, my buddy from Github!"
+                val tweetUrl = ("https://twitter.com/intent/tweet?text=$tweet &url=")
+                val uri: Uri = Uri.parse(tweetUrl)
+                startActivity(Intent(Intent.ACTION_VIEW, uri))
+            }
+        }
     }
 
     private fun showLoading(state: Boolean) {
@@ -101,11 +162,4 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(v: View) {
-        if (v.id == R.id.img_link_user) {
-            val linkIntent = Intent(Intent.ACTION_VIEW)
-            linkIntent.data = Uri.parse("https://github.com/${username}")
-            startActivity(linkIntent)
-        }
-    }
 }

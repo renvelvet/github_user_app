@@ -35,6 +35,9 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
         holder.itemView.setOnClickListener {
             val intent = Intent(it.context, DetailUserActivity::class.java)
             intent.putExtra(DetailUserActivity.KEY_USER, listUser[position].username)
+            intent.putExtra(DetailUserActivity.KEY_ID, listUser[position].id)
+            intent.putExtra(DetailUserActivity.KEY_AVA, listUser[position].avatar)
+
             it.context.startActivity(intent)
         }
     }
