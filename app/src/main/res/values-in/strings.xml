@@ -4,6 +4,8 @@
     <string name="search_hint">Masukkan nama pengguna</string>
     <string name="search">Cari</string>
     <string name="username">\@%1s</string>
+    <string name="location">\t%1s</string>
+    <string name="company">\t%1s</string>
     <plurals name="repository">
         <item quantity="one">%1d Repositori</item>
         <item quantity="other">%1d Repositori</item>

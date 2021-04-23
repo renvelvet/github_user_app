@@ -3,9 +3,11 @@
     <string name="search_hint">Enter username</string>
     <string name="search">Search</string>
     <string name="username">\@%1s</string>
+    <string name="location">\t%1s</string>
+    <string name="company">\t%1s</string>
     <plurals name="repository">
-        <item quantity="one">%1d Repository</item>
-        <item quantity="other">%1d Repositories</item>
+        <item quantity="one">\t%1d Repository</item>
+        <item quantity="other">\t%1d Repositories</item>
     </plurals>
     <string name="tab_text_1">%1d Following</string>
     <string name="tab_text_2">%1d Follower</string>

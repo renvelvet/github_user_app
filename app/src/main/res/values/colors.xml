@@ -7,7 +7,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow_dark">#c8b900</color>
     <color name="yellow_primary">#FFBF00</color>
+    <color name="red_favorite">#fb3640</color>
     <color name="blue">#1976d2</color>
+    <color name="pink_a_700">#c51162</color>
     <color name="purple_900">#4a148c</color>
     <color name="purple_dark">#12005e</color>
     <color name="grey_transparent">#40bdbdbd</color>
