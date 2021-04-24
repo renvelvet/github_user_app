@@ -27,6 +27,7 @@ class FavoriteActivity : AppCompatActivity() {
         userAdapter = UserAdapter()
         userAdapter.notifyDataSetChanged()
 
+        favoriteViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
         getViewModelData()
         setRvUsers()
 
@@ -36,8 +37,7 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun getViewModelData() {
-        favoriteViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
-        favoriteViewModel.favoriteUsers.observe(this, {
+        favoriteViewModel.getAll().observe(this, {
             showLoading(true)
             if (it != null) {
                 listFavorite = mapUsers(it)
@@ -50,6 +50,11 @@ class FavoriteActivity : AppCompatActivity() {
                 binding.tvNoFavorite.visibility = View.VISIBLE
             }
         })
+    }
+
+    override fun onResume() {
+        super.onResume()
+        favoriteViewModel.getAll()
     }
 
     private fun setRvUsers() {
