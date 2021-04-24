@@ -1,6 +1,5 @@
 package com.dicoding.githubuserapp.ui.favorite
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +27,7 @@ class FavoriteActivity : AppCompatActivity() {
         userAdapter.notifyDataSetChanged()
 
         favoriteViewModel = ViewModelProvider(this).get(FavoriteViewModel::class.java)
+        showLoading(true)
         getViewModelData()
         setRvUsers()
 
@@ -37,19 +37,23 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun getViewModelData() {
-        favoriteViewModel.getAll().observe(this, {
-            showLoading(true)
+        favoriteViewModel.favoriteUsers.observe(this, {
             if (it != null) {
-                listFavorite = mapUsers(it)
-                userAdapter.setList(listFavorite)
-                showLoading(false)
-            }
-            if (it.size > 0) {
-                binding.tvNoFavorite.visibility = View.GONE
-            } else {
-                binding.tvNoFavorite.visibility = View.VISIBLE
+                if (it.size > 0) {
+                    listFavorite = mapUsers(it)
+                    userAdapter.setList(listFavorite)
+                    showLoading(false)
+                    binding.tvNoFavorite.visibility = View.GONE
+                } else {
+                    binding.tvNoFavorite.visibility = View.VISIBLE
+                }
             }
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
+        favoriteViewModel.getAll()
     }
 
     override fun onResume() {

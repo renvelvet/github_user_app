@@ -7,7 +7,7 @@ import com.dicoding.githubuserapp.data.local.entity.FavoriteUser
 @Dao
 interface FavortieUserDao {
     @Query("SELECT * FROM favorite_user")
-    fun getAll(): LiveData<List<FavoriteUser>>
+    suspend fun getAll(): List<FavoriteUser>
 
     @Query("SELECT COUNT(uid) FROM favorite_user WHERE uid = :id")
     fun findById(id: Int) : Int
