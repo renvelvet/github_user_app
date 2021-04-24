@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -50,8 +51,8 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
         detailUserViewModel = ViewModelProvider(this).get(
             DetailUserViewModel::class.java
         )
-        showLoading(true)
         detailUserViewModel.setData(username)
+        showLoading(true)
         detailUserViewModel.getDetailUser().observe(this, {
             if (it != null) {
                 binding.apply {
@@ -110,14 +111,21 @@ class DetailUserActivity : AppCompatActivity(), View.OnClickListener {
             statusFavorite = !statusFavorite
             if (statusFavorite) {
                 detailUserViewModel.addUser(username, id, ava)
+                Toast.makeText(
+                    this@DetailUserActivity,
+                    R.string.add_to_favorite,
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
                 detailUserViewModel.deleteUser(username, id, ava)
             }
+
             setStatusFavorite(statusFavorite)
         }
 
         supportActionBar?.elevation = 0f
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.subtitle = username
     }
 
     private fun setStatusFavorite(statusFavorite: Boolean) {

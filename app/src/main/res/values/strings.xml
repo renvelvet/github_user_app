@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Github Buddy</string>
     <string name="search_hint">Enter username</string>
@@ -16,4 +17,6 @@
     <string name="link_user">%1s\'s Page</string>
     <string name="change_language_settings">Change Language Settings</string>
     <string name="welcoming_message">Looking for Github Buddy? Try on the search bar above!</string>
+    <string name="add_to_favorite">User added to favorite</string>
+    <string name="no_favorite">You haven\'t added any buddy!</string>
 </resources>

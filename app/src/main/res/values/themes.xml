@@ -13,11 +13,6 @@
         <item name="android:editTextColor">@color/white</item>
     </style>
 
-
-<!--    <style name="Widget.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">-->
-<!--        <item name="colorSecondary">@color/grey_transparent</item>-->
-<!--        <item name="colorOnSecondary">@color/grey_light</item>-->
-<!--    </style>-->
     <style name="TextAppearance.App.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/bicubik</item>
         <item name="android:fontFamily">@font/bicubik</item>

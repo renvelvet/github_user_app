@@ -3,12 +3,12 @@ package com.dicoding.githubuserapp.ui
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.adapter.UserAdapter
 import com.dicoding.githubuserapp.databinding.ActivityMainBinding
+import com.dicoding.githubuserapp.ui.favorite.FavoriteActivity
 import com.dicoding.githubuserapp.ui.user.UserViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -68,6 +69,12 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.action_menu, menu)
 
+        actionSearch(menu)
+
+        return true
+    }
+
+    private fun actionSearch(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.action_search).actionView as SearchView
 
@@ -85,13 +92,15 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_change_settings) {
             val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(mIntent)
+        } else if (item.itemId == R.id.action_favorite) {
+            val i = Intent(this, FavoriteActivity::class.java)
+            startActivity(i)
         }
         return super.onOptionsItemSelected(item)
     }

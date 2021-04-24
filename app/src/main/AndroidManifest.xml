@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUserApp">
         <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
             android:name=".ui.SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
@@ -21,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.dicoding.githubuserapp.ui.detail.DetailUserActivity"
+            android:name=".ui.detail.DetailUserActivity"
             android:parentActivityName=".ui.MainActivity" />
         <activity
             android:name=".ui.MainActivity"

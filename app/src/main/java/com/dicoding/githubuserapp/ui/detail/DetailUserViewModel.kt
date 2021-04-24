@@ -26,8 +26,6 @@ class DetailUserViewModel(application: Application) : AndroidViewModel(applicati
             .favoriteUserDao()
     }
 
-    val favoriteUsers = favoriteDao.getAll()
-
     fun setData(username: String) {
         ApiConfig.getApiService().getDetailUser(username)
             .enqueue(object : Callback<ResponseDetailUser> {

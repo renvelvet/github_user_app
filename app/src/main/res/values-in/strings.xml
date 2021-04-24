@@ -17,4 +17,6 @@
     <string name="link_user">Halaman %1s</string>
     <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
     <string name="welcoming_message">Mencari seorang Github Buddy? Coba pencarian di atas!</string>
+    <string name="add_to_favorite">Pengguna ditambahkan ke dalam favorit</string>
+    <string name="no_favorite">Anda belum menambahkan siapa pun!</string>
 </resources>
