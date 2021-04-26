@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.githubuserapp.adapter.UserAdapter
 import com.dicoding.githubuserapp.data.local.entity.FavoriteUser
-import com.dicoding.githubuserapp.data.remote.User
+import com.dicoding.githubuserapp.data.model.UserModel
 import com.dicoding.githubuserapp.databinding.ActivityFavoriteBinding
 import java.util.*
 import kotlin.collections.ArrayList
@@ -16,7 +16,7 @@ class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteBinding
     private lateinit var userAdapter: UserAdapter
     private lateinit var favoriteViewModel: FavoriteViewModel
-    private lateinit var listFavorite: ArrayList<User>
+    private lateinit var listFavorite: ArrayList<UserModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,10 +69,10 @@ class FavoriteActivity : AppCompatActivity() {
         }
     }
 
-    private fun mapUsers(list: List<FavoriteUser>): ArrayList<User> {
-        val mappedUsers = ArrayList<User>()
+    private fun mapUsers(list: List<FavoriteUser>): ArrayList<UserModel> {
+        val mappedUsers = ArrayList<UserModel>()
         for (user in list) {
-            val setMap = User(user.username, user.avatar_url, user.uid)
+            val setMap = UserModel(user.username, user.avatar_url, user.uid)
             mappedUsers.add(setMap)
         }
 

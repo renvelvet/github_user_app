@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/list_bg">
+
+    <SwitchPreferenceCompat
+        app:iconSpaceReserved="false"
+        app:key="@string/key_set_alarm"
+        app:summaryOff="@string/on_reminder"
+        app:summaryOn="@string/no_reminder"
+        app:title="@string/title_set_alarm" />
+
+</PreferenceScreen>

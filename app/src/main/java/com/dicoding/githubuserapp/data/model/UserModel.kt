@@ -1,11 +1,11 @@
-package com.dicoding.githubuserapp.data.remote
+package com.dicoding.githubuserapp.data.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class User(
+data class UserModel(
 
 	@field:SerializedName("login")
 	val username: String? = null,

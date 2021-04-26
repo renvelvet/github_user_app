@@ -17,6 +17,7 @@ import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.adapter.UserAdapter
 import com.dicoding.githubuserapp.databinding.ActivityMainBinding
 import com.dicoding.githubuserapp.ui.favorite.FavoriteActivity
+import com.dicoding.githubuserapp.ui.user.SettingsActivity
 import com.dicoding.githubuserapp.ui.user.UserViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -95,14 +96,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_change_settings) {
-            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(mIntent)
-        } else if (item.itemId == R.id.action_favorite) {
-            val i = Intent(this, FavoriteActivity::class.java)
-            startActivity(i)
+        when (item.itemId) {
+            R.id.action_change_language -> {
+                val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(mIntent)
+                return true
+            }
+            R.id.action_favorite -> {
+                val i = Intent(this, FavoriteActivity::class.java)
+                startActivity(i)
+                return true
+            }
+            R.id.action_change_settings -> {
+                val i = Intent(this, SettingsActivity::class.java)
+                startActivity(i)
+                return true
+            }
+            else -> return true
         }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun getListUsers(query: String) {

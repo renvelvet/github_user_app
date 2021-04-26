@@ -1,6 +1,7 @@
 package com.dicoding.githubuserapp.data.remote
 
 import com.dicoding.githubuserapp.BuildConfig
+import com.dicoding.githubuserapp.data.model.UserModel
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -33,11 +34,11 @@ interface ApiService {
     @Headers("Authorization: token $TOKEN")
     fun getUserFollower(
         @Path("username") username: String?
-    ): Call<ArrayList<User>>
+    ): Call<ArrayList<UserModel>>
 
     @GET(ENDPOINT_USER_FOLLOWING)
     @Headers("Authorization: token $TOKEN")
     fun getUserFollowing(
         @Path("username") username: String?
-    ): Call<ArrayList<User>>
+    ): Call<ArrayList<UserModel>>
 }

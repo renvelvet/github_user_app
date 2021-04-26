@@ -10,14 +10,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.databinding.ItemRowUserBinding
-import com.dicoding.githubuserapp.data.remote.User
+import com.dicoding.githubuserapp.data.model.UserModel
 import com.dicoding.githubuserapp.ui.detail.DetailUserActivity
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
-    private val listUser = ArrayList<User>()
+    private val listUser = ArrayList<UserModel>()
 
-    fun setList(users: ArrayList<User>) {
+    fun setList(users: ArrayList<UserModel>) {
         listUser.clear()
         listUser.addAll(users)
         notifyDataSetChanged()
@@ -47,7 +47,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
     inner class UserViewHolder(private val binding: ItemRowUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(user: User) {
+        fun bind(user: UserModel) {
             binding.apply {
                 tvUsername.text = user.username
                 Glide.with(itemView.context)

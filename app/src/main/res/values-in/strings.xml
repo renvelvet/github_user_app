@@ -15,8 +15,16 @@
     <string name="text_null">\t-</string>
     <string name="error_message">Maaf, pencarian tidak ditemukan</string>
     <string name="link_user">Halaman %1s</string>
-    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+    <string name="change_language_settings">Atur Bahasa</string>
     <string name="welcoming_message">Mencari seorang Github Buddy? Coba pencarian di atas!</string>
     <string name="add_to_favorite">Pengguna ditambahkan ke dalam favorit</string>
     <string name="no_favorite">Anda belum menambahkan siapa pun!</string>
+    <string name="title_set_alarm">Pengingat di jam 9 pagi</string>
+    <string name="no_reminder">Atur</string>
+    <string name="on_reminder">Non aktifkan</string>
+    <string name="key_set_alarm">alarm</string>
+    <string name="toast_set_alarm">Pengingat sudah diatur</string>
+    <string name="toast_cancel_alarm">Pengingat dibatalkan</string>
+    <string name="content_text">Ini adalah pengingat harian</string>
+    <string name="title_activity_settings">Pengaturan</string>
 </resources>

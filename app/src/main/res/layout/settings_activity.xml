@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg"
+    android:padding="16dp">
+
+    <!--    <androidx.appcompat.widget.SwitchCompat-->
+    <!--        android:id="@+id/settings"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/title_set_alarm"-->
+    <!--        android:textOff="@string/on_reminder"-->
+    <!--        android:textOn="@string/no_reminder" />-->
+
+    <FrameLayout
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

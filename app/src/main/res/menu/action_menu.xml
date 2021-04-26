@@ -15,8 +15,13 @@
             android:title="Favorite"
             app:showAsAction="always"/>
         <item
-            android:id="@+id/action_change_settings"
+            android:id="@+id/action_change_language"
             android:title="@string/change_language_settings"
+            android:icon="@color/white"
+            app:showAsAction="never"/>
+        <item
+            android:id="@+id/action_change_settings"
+            android:title="@string/title_activity_settings"
             android:icon="@color/white"
             app:showAsAction="never"/>
     </group>

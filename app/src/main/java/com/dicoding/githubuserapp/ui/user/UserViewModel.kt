@@ -5,15 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.githubuserapp.data.remote.ResponseUser
-import com.dicoding.githubuserapp.data.remote.User
+import com.dicoding.githubuserapp.data.model.UserModel
 import com.dicoding.githubuserapp.data.remote.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class UserViewModel : ViewModel() {
-    val list = MutableLiveData<ArrayList<User>>()
-    val getList: LiveData<ArrayList<User>>
+    val list = MutableLiveData<ArrayList<UserModel>>()
+    val getList: LiveData<ArrayList<UserModel>>
         get() = list
 
     var isNotFound = false

@@ -15,8 +15,16 @@
     <string name="text_null">\t-</string>
     <string name="error_message">Sorry, the query didn\'t match any</string>
     <string name="link_user">%1s\'s Page</string>
-    <string name="change_language_settings">Change Language Settings</string>
+    <string name="change_language_settings">Set Language</string>
     <string name="welcoming_message">Looking for Github Buddy? Try on the search bar above!</string>
     <string name="add_to_favorite">User added to favorite</string>
     <string name="no_favorite">You haven\'t added any buddy!</string>
+    <string name="title_set_alarm">Reminder at 9.00 AM</string>
+    <string name="no_reminder">Set</string>
+    <string name="on_reminder">Set off</string>
+    <string name="key_set_alarm">alarm</string>
+    <string name="toast_set_alarm">Reminder has been set</string>
+    <string name="toast_cancel_alarm">Reminder cancelled</string>
+    <string name="content_text">Here is daily reminder</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>
