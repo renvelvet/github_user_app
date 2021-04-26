@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.data.preference
+package com.dicoding.githubuserapp.preference
 
 import android.content.Context
 import androidx.core.content.edit

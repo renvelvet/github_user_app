@@ -1,4 +1,4 @@
-package com.dicoding.githubuserapp.ui.user
+package com.dicoding.githubuserapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreferenceCompat
 import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.data.model.ReminderModel
-import com.dicoding.githubuserapp.data.preference.ReminderPreference
+import com.dicoding.githubuserapp.preference.ReminderPreference
 import com.dicoding.githubuserapp.databinding.SettingsActivityBinding
 import com.dicoding.githubuserapp.receiver.AlarmReceiver
 

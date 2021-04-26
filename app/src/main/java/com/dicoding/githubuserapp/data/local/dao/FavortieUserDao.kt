@@ -1,6 +1,6 @@
 package com.dicoding.githubuserapp.data.local.dao
 
-import androidx.lifecycle.LiveData
+import android.database.Cursor
 import androidx.room.*
 import com.dicoding.githubuserapp.data.local.entity.FavoriteUser
 
@@ -8,6 +8,9 @@ import com.dicoding.githubuserapp.data.local.entity.FavoriteUser
 interface FavortieUserDao {
     @Query("SELECT * FROM favorite_user")
     suspend fun getAll(): List<FavoriteUser>
+
+    @Query("SELECT * FROM favorite_user")
+    fun getUsers(): Cursor
 
     @Query("SELECT COUNT(uid) FROM favorite_user WHERE uid = :id")
     fun findById(id: Int) : Int

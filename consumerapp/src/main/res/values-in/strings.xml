@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ConsumerApp</string>
+    <string name="username">\@%1s</string>
+    <string name="no_favorite">Anda belum menambahkan siapa pun di aplikasi utama!</string>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ConsumerApp</string>
+    <string name="username">\@%1s</string>
+    <string name="no_favorite">You haven\'t added any buddy!</string>
+</resources>

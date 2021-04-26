@@ -17,7 +17,6 @@ import com.dicoding.githubuserapp.R
 import com.dicoding.githubuserapp.adapter.UserAdapter
 import com.dicoding.githubuserapp.databinding.ActivityMainBinding
 import com.dicoding.githubuserapp.ui.favorite.FavoriteActivity
-import com.dicoding.githubuserapp.ui.user.SettingsActivity
 import com.dicoding.githubuserapp.ui.user.UserViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
